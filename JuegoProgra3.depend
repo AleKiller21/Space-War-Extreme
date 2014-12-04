@@ -1,0 +1,45 @@
+# depslib dependency file v1.0
+1416017311 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\personaje.cpp
+	"Personaje.h"
+
+1416279853 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\personaje.h
+	<allegro.h>
+	<iostream>
+	<list>
+
+1417665642 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\main.cpp
+	<allegro.h>
+	<iostream>
+	<alpng.h>
+	<cstdlib>
+	<time.h>
+	"Jugador.h"
+	"NPC.h"
+	<math.h>
+
+1417665913 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.cpp
+	"Jugador.h"
+
+1417665672 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.h
+	<allegro.h>
+	<alpng.h>
+	"Proyectil.h"
+	<math.h>
+	"NPC.h"
+
+1417483294 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\proyectil.h
+	<allegro.h>
+	<alpng.h>
+	<iostream>
+
+1417559482 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\proyectil.cpp
+	"Proyectil.h"
+
+1417585587 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\npc.cpp
+	"NPC.h"
+
+1417559768 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\npc.h
+	<allegro.h>
+	<math.h>
+	"Proyectil.h"
+
