@@ -7,7 +7,7 @@
 	<iostream>
 	<list>
 
-1417665642 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\main.cpp
+1417725073 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\main.cpp
 	<allegro.h>
 	<iostream>
 	<alpng.h>
@@ -17,10 +17,10 @@
 	"NPC.h"
 	<math.h>
 
-1417665913 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.cpp
+1417725029 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.cpp
 	"Jugador.h"
 
-1417665672 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.h
+1417724745 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.h
 	<allegro.h>
 	<alpng.h>
 	"Proyectil.h"

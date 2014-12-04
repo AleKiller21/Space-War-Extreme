@@ -96,7 +96,7 @@ void Jugador::check_collision(NPC* npc)
 //    line(canvas, bullet_bb_right, bullet_bb_top, bullet_bb_right, bullet_bb_bottom, makecol(255,0,0));
 }
 
-void Jugador::logic(NPC* npc)
+void Jugador::logic(NPC* npc, int* cameraX, int* cameraY, int*worldWidth, int* worldHeight)
 {
     if(this->HP <= 0)
     {
@@ -140,27 +140,52 @@ void Jugador::logic(NPC* npc)
 
     if(moviendo)
     {
-        if(fixtoi(pos_x) < (SCREEN_W-80) && fixtoi(pos_x) > 0 && fixtoi(pos_y) < (SCREEN_H-80) && fixtoi(pos_y) > 0)
-        {
-            pos_x+= fmul(speed_vector, fcos(angle));
-            pos_y+= fmul(speed_vector, fsin(angle));
+        pos_x+= fmul(speed_vector, fcos(angle));
+        pos_y+= fmul(speed_vector, fsin(angle));
 
-        }
+    }
 
-        else
-        {
-            if(fixtoi(pos_x) >= (SCREEN_W-80))
-                pos_x = itofix(1);
+    if(*cameraX < 0)
+    {
+        *cameraX = 0;
+    }
 
-            else if(fixtoi(pos_x) <= 0)
-                pos_x = itofix(SCREEN_W-81);
+    if(*cameraY < 0)
+    {
+        *cameraY = 0;
+    }
 
-            else if(fixtoi(pos_y) >= (SCREEN_H-80))
-                pos_y = itofix(1);
+    if(*cameraX > (*worldWidth - SCREEN_W))
+    {
+        *cameraX = *worldWidth - SCREEN_W;
+    }
 
-            else if(fixtoi(pos_y) <= 0)
-                pos_y = itofix(SCREEN_H-81);
-        }
+    if(*cameraY > (*worldHeight - SCREEN_H))
+    {
+        *cameraY = *cameraY - SCREEN_H;
+    }
+
+    *cameraX = fixtoi(pos_x) - SCREEN_W/2;
+    *cameraY = fixtoi(pos_y) - SCREEN_H/2;
+
+    if(fixtoi(pos_x) < 0)
+    {
+        pos_x = itofix(0);
+    }
+
+    if(fixtoi(pos_x) > 1950)
+    {
+        pos_x = itofix(1950);
+    }
+
+    if(fixtoi(pos_y) < 0)
+    {
+        pos_y = itofix(0);
+    }
+
+    if(fixtoi(pos_y) > 1950)
+    {
+        pos_y = itofix(1950);
     }
 
     if(fire)
@@ -184,12 +209,12 @@ void Jugador::logic(NPC* npc)
     check_collision(npc);
 }
 
-void Jugador::draw(BITMAP* canvas)
+void Jugador::draw(BITMAP* canvas, int* cameraX, int* cameraY, int*worldWidth, int* worldHeight)
 {
-    rotate_sprite(canvas, ship, fixtoi(pos_x), fixtoi(pos_y), angle);
+    rotate_sprite(canvas, ship, fixtoi(pos_x) - *cameraX, fixtoi(pos_y) - *cameraY, angle);
     if(fire)
     {
-        rotate_sprite(canvas, bullet->proyectil, fixtoi(bullet->pos_x), fixtoi(bullet->pos_y), angle);
+        rotate_sprite(canvas, bullet->proyectil, fixtoi(bullet->pos_x) - *cameraX, fixtoi(bullet->pos_y) - *cameraY, angle);
     }
 }
 

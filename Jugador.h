@@ -20,8 +20,8 @@ public:
     bool moviendo;
 
     Jugador(int x, int y);
-    void logic(NPC* npc);
-    void draw(BITMAP* canvas);
+    void logic(NPC* npc, int* cameraX, int* cameraY, int*worldWidth, int* worldHeight);
+    void draw(BITMAP* canvas, int* cameraX, int* cameraY, int*worldWidth, int* worldHeight);
     void check_collision(NPC* npc);
     void destroy_sprites();
     virtual ~Jugador();

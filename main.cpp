@@ -10,8 +10,12 @@
 //using namespace std;
 
 volatile long speed_counter = 0;
-//int screen_width = 1200;
-//int screen_height = 720;
+int worldWidth = 2000;
+int worldHeight = 2000;
+int background_pos_x = 0;
+int background_pos_y = 0;
+int cameraX = 0;
+int cameraY = 0;
 
 
 void initiate()
@@ -70,27 +74,25 @@ int main(int argc, char * argv[])
     LOCK_VARIABLE(speed_counter);
     LOCK_FUNCTION(increment_speed_counter);
 
-    BITMAP* background = load_png("assets/Background/Background-4.png", NULL);
-    BITMAP* buffer = create_bitmap(SCREEN_W,SCREEN_H);
-    Jugador ship(300,300);
-    //int y = npc_random_pos_y();
-    NPC npc(npc_random_pos_x(),npc_random_pos_y(),100);
-    //std:: cout << y << std::endl;
+    BITMAP* background = load_png("assets/Background/Background.png", NULL);
+    BITMAP* buffer = create_bitmap(worldWidth,worldHeight);
+    Jugador ship(worldWidth/2,worldHeight/2);
+    NPC npc(worldWidth/2,worldHeight/2, 1);
 
     while(!key[KEY_ESC])
     {
 //-------------------LOGIC----------------------------
         while(speed_counter > 0)
         {
-            ship.logic(&npc);
+            ship.logic(&npc, &cameraX, &cameraY, &worldWidth, &worldHeight);
             npc.logic(ship.pos_x, ship.pos_y);
             speed_counter--;
         }
 
 //-------------------DRAWING----------------------------
-        draw_sprite(buffer, background, 0,0);
+        draw_sprite(buffer, background, background_pos_x - cameraX,background_pos_y - cameraY);
 
-        ship.draw(buffer);
+        ship.draw(buffer, &cameraX, &cameraY, &worldWidth, &worldHeight);
         npc.draw(buffer);
         blit(buffer, screen, 0,0,0,0,SCREEN_W,SCREEN_H);
         clear_bitmap(buffer);
