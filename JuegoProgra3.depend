@@ -7,7 +7,7 @@
 	<iostream>
 	<list>
 
-1417725073 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\main.cpp
+1417738603 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\main.cpp
 	<allegro.h>
 	<iostream>
 	<alpng.h>
@@ -17,15 +17,16 @@
 	"NPC.h"
 	<math.h>
 
-1417725029 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.cpp
+1417735849 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.cpp
 	"Jugador.h"
 
-1417724745 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.h
+1417734472 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.h
 	<allegro.h>
 	<alpng.h>
 	"Proyectil.h"
 	<math.h>
 	"NPC.h"
+	"Camera.h"
 
 1417483294 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\proyectil.h
 	<allegro.h>
@@ -35,11 +36,17 @@
 1417559482 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\proyectil.cpp
 	"Proyectil.h"
 
-1417585587 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\npc.cpp
+1417735296 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\npc.cpp
 	"NPC.h"
 
-1417559768 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\npc.h
+1417739155 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\npc.h
 	<allegro.h>
 	<math.h>
 	"Proyectil.h"
+	"Camera.h"
+
+1417734472 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\camera.cpp
+	"Camera.h"
+
+1417734472 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\camera.h
 

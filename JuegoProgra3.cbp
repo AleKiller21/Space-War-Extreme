@@ -31,6 +31,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Camera.cpp" />
+		<Unit filename="Camera.h" />
 		<Unit filename="Jugador.cpp" />
 		<Unit filename="Jugador.h" />
 		<Unit filename="NPC.cpp" />

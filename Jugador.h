@@ -5,6 +5,7 @@
 #include "Proyectil.h"
 #include <math.h>
 #include "NPC.h"
+#include "Camera.h"
 
 class Jugador
 {
@@ -20,8 +21,8 @@ public:
     bool moviendo;
 
     Jugador(int x, int y);
-    void logic(NPC* npc, int* cameraX, int* cameraY, int*worldWidth, int* worldHeight);
-    void draw(BITMAP* canvas, int* cameraX, int* cameraY, int*worldWidth, int* worldHeight);
+    void logic(NPC* npc, Camera* cam);
+    void draw(BITMAP* canvas, Camera* cam);
     void check_collision(NPC* npc);
     void destroy_sprites();
     virtual ~Jugador();

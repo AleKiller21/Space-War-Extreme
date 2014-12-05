@@ -18,7 +18,7 @@ NPC::NPC()
 
 }
 
-void NPC::logic(fixed target_x, fixed target_y)
+void NPC::logic(fixed target_x, fixed target_y, Camera* cam)
 {
     fixed target_angle = (fatan2((target_y-pos_y), (target_x-pos_x)))&0xFFFFFF;
     if(((angle-target_angle)&0xFFFFFF) < itofix(128))
@@ -46,7 +46,8 @@ void NPC::logic(fixed target_x, fixed target_y)
 
     if(fire)
     {
-        if(fixtoi(bullet->pos_x) < (SCREEN_W-40) && fixtoi(bullet->pos_x) > 0 && fixtoi(bullet->pos_y) < (SCREEN_H-40) && fixtoi(bullet->pos_y) > 0)
+        if((fixtoi(bullet->pos_x) - cam->cameraX) < (SCREEN_W-40) && (fixtoi(bullet->pos_x) - cam->cameraX) > 0
+           && (fixtoi(bullet->pos_y) - cam->cameraY) < (SCREEN_H-40) && (fixtoi(bullet->pos_y) - cam->cameraY) > 0)
         {
             bullet->mover(itofix(20), angle);
         }
@@ -66,12 +67,12 @@ void NPC::logic(fixed target_x, fixed target_y)
     }
 }
 
-void NPC::draw(BITMAP* canvas)
+void NPC::draw(BITMAP* canvas, Camera* cam)
 {
-    rotate_sprite(canvas, ship, fixtoi(pos_x), fixtoi(pos_y), angle);
+    rotate_sprite(canvas, ship, fixtoi(pos_x) - cam->cameraX, fixtoi(pos_y) - cam->cameraY, angle);
     if(fire)
     {
-        rotate_sprite(canvas, bullet->proyectil, fixtoi(bullet->pos_x), fixtoi(bullet->pos_y), angle);
+        rotate_sprite(canvas, bullet->proyectil, fixtoi(bullet->pos_x) - cam->cameraX, fixtoi(bullet->pos_y) - cam->cameraY, angle);
     }
 }
 

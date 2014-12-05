@@ -96,7 +96,7 @@ void Jugador::check_collision(NPC* npc)
 //    line(canvas, bullet_bb_right, bullet_bb_top, bullet_bb_right, bullet_bb_bottom, makecol(255,0,0));
 }
 
-void Jugador::logic(NPC* npc, int* cameraX, int* cameraY, int*worldWidth, int* worldHeight)
+void Jugador::logic(NPC* npc, Camera* cam)
 {
     if(this->HP <= 0)
     {
@@ -145,28 +145,28 @@ void Jugador::logic(NPC* npc, int* cameraX, int* cameraY, int*worldWidth, int* w
 
     }
 
-    if(*cameraX < 0)
+    if(cam->cameraX < 0)
     {
-        *cameraX = 0;
+        cam->cameraX = 0;
     }
 
-    if(*cameraY < 0)
+    if(cam->cameraY < 0)
     {
-        *cameraY = 0;
+        cam->cameraY = 0;
     }
 
-    if(*cameraX > (*worldWidth - SCREEN_W))
+    if(cam->cameraX > (cam->worldWidth - SCREEN_W))
     {
-        *cameraX = *worldWidth - SCREEN_W;
+        cam->cameraX = cam->worldWidth - SCREEN_W;
     }
 
-    if(*cameraY > (*worldHeight - SCREEN_H))
+    if(cam->cameraY > (cam->worldHeight - SCREEN_H))
     {
-        *cameraY = *cameraY - SCREEN_H;
+        cam->cameraY = cam->cameraY - SCREEN_H;
     }
 
-    *cameraX = fixtoi(pos_x) - SCREEN_W/2;
-    *cameraY = fixtoi(pos_y) - SCREEN_H/2;
+    cam->cameraX = fixtoi(pos_x) - SCREEN_W/2;
+    cam->cameraY = fixtoi(pos_y) - SCREEN_H/2;
 
     if(fixtoi(pos_x) < 0)
     {
@@ -190,7 +190,8 @@ void Jugador::logic(NPC* npc, int* cameraX, int* cameraY, int*worldWidth, int* w
 
     if(fire)
     {
-        if(fixtoi(bullet->pos_x) < (SCREEN_W-40) && fixtoi(bullet->pos_x) > 0 && fixtoi(bullet->pos_y) < (SCREEN_H-40) && fixtoi(bullet->pos_y) > 0)
+        if((fixtoi(bullet->pos_x) - cam->cameraX) < (SCREEN_W-40) && (fixtoi(bullet->pos_x) - cam->cameraX) > 0
+           && (fixtoi(bullet->pos_y) - cam->cameraY) < (SCREEN_H-40) && (fixtoi(bullet->pos_y) - cam->cameraY) > 0)
         {
             bullet->mover(itofix(40), angle);
         }
@@ -209,12 +210,12 @@ void Jugador::logic(NPC* npc, int* cameraX, int* cameraY, int*worldWidth, int* w
     check_collision(npc);
 }
 
-void Jugador::draw(BITMAP* canvas, int* cameraX, int* cameraY, int*worldWidth, int* worldHeight)
+void Jugador::draw(BITMAP* canvas, Camera* cam)
 {
-    rotate_sprite(canvas, ship, fixtoi(pos_x) - *cameraX, fixtoi(pos_y) - *cameraY, angle);
+    rotate_sprite(canvas, ship, fixtoi(pos_x) - cam->cameraX, fixtoi(pos_y) - cam->cameraY, angle);
     if(fire)
     {
-        rotate_sprite(canvas, bullet->proyectil, fixtoi(bullet->pos_x) - *cameraX, fixtoi(bullet->pos_y) - *cameraY, angle);
+        rotate_sprite(canvas, bullet->proyectil, fixtoi(bullet->pos_x) - cam->cameraX, fixtoi(bullet->pos_y) - cam->cameraY, angle);
     }
 }
 
