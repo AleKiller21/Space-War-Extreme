@@ -56,9 +56,6 @@ void NPC::logic(fixed target_x, fixed target_y, Camera* cam)
         {
             bullet->actualizar_pos(pos_x+itofix(20), pos_y+itofix(20));
         }
-
-//        std::cout << "Target_x: " << fixtoi(target_x) << ", " << "Target_y: " << fixtoi(target_y) << std::endl;
-//        std::cout << "Bullet_x: " << fixtoi(bullet->pos_x) << ", " << "Bullet_y: " << fixtoi(bullet->pos_y) << std::endl;
     }
 
     else

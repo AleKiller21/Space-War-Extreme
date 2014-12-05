@@ -77,7 +77,7 @@ int main(int argc, char * argv[])
     LOCK_VARIABLE(speed_counter);
     LOCK_FUNCTION(increment_speed_counter);
 
-    BITMAP* background = load_png("assets/Background/Background.png", NULL);
+    BITMAP* background = load_png("assets/Background/background2.png", NULL);
     BITMAP* buffer = create_bitmap(worldWidth,worldHeight);
 
     while(!key[KEY_ESC])
