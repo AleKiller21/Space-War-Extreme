@@ -2,10 +2,12 @@
 #define JUGADOR_H
 #include <allegro.h>
 #include <alpng.h>
-#include "Proyectil.h"
 #include <math.h>
+#include <list>
+#include "Proyectil.h"
 #include "NPC.h"
 #include "Camera.h"
+#include "Audio.h"
 
 class Jugador
 {
@@ -17,13 +19,15 @@ public:
     BITMAP* ship;
     Proyectil* bullet;
     int HP;
+    int vidas;
     bool fire;
     bool moviendo;
+    int score;
 
     Jugador(int x, int y);
-    void logic(NPC* npc, Camera* cam);
+    void logic(std::list<NPC*>* npc, Camera* cam);//NPC* npc
     void draw(BITMAP* canvas, Camera* cam);
-    void check_collision(NPC* npc);
+    void check_collision(std::list<NPC*>* npc);//NPC* npc
     void destroy_sprites();
     virtual ~Jugador();
 protected:

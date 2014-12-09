@@ -11,6 +11,8 @@ Jugador::Jugador(int x, int y)
     this->fire = false;
     this->angle = itofix(0);
     this->moviendo = false;
+    this->vidas = 3;
+    this->score = 0;
 
     if(ship == NULL)
     {
@@ -20,83 +22,70 @@ Jugador::Jugador(int x, int y)
     }
 }
 
-//void Jugador::rotate_trans_sprite(BITMAP* dest, BITMAP* source, int x, int y, fixed angle)
-//{
-//    float Ax = float(source->w);
-//    float Ay = float(source->h);
-//    float Bx = Ax;
-//    float By = -Ay;
-//    float c = cosf(fixtof(angle) / 128.0f * AL_PI);
-//    float s = sinf(fixtof(angle) / 128.0f * AL_PI);
-//    float Tx;
-//    Tx = Ax;
-//    Ax = c * Tx - s * Ay;
-//    Ay = s * Tx + c * Ay;
-//    Tx = Bx;
-//    Bx = c * Tx - s * By;
-//    By = s * Tx + c * By;
-//    int max_width = fabs(Ax) > fabs(Bx) ? fabs(Ax) : fabs(Bx);
-//    int max_height = fabs(Ay) > fabs(By) ? fabs(Ay) : fabs(By);
-//    int devX = max_width - source->w;
-//    devX /= 2;
-//    int devY = max_height - source->h;
-//    devY = max_height - source->h;
-//    devY /= 2;
-//
-//    if(turno == 1)
-//    {
-//        this->rotate_buffer = create_bitmap(max_width, max_height);
-//        rotate_sprite(rotate_buffer, source, devX, devY, angle);
-//        draw_trans_sprite(dest, rotate_buffer, x - devX, y - devY);
-//    }
-//
-//    else
-//    {
-//        this->rotate_buffer2 = create_bitmap(max_width, max_height);
-//        rotate_sprite(rotate_buffer2, source, devX, devY, angle);
-//        draw_trans_sprite(dest, rotate_buffer2, x - devX, y - devY);
-//    }
-//}
-
-void Jugador::check_collision(NPC* npc)
+//TODO EL CODIGO ESTABA FUERA DEL FOR, SOLO RECIBIA DE PARAMETRO LA DIRECCION DE UN NPC. ESTO ERA PARA EVITAR METER AL JUGADOR EN EL
+//FOR DEL LOOP DEL MAIN! TAMBIEN SE MODIFICO EL PARAMETRO DE LOGIC EL CUAL TAMBIEN SOLO RECIBIA LA DIRECCION DE UN NPC.
+void Jugador::check_collision(std::list<NPC*>* npc)
 {
-    int bb_top = fixtoi(pos_y);
-    int bb_bottom = (fixtoi(pos_y) + ship->h);
-    int bb_left = fixtoi(pos_x);
-    int bb_right = (fixtoi(pos_x) + ship->w);
-
-    int npc_bb_top = fixtoi(npc->pos_y);
-    int npc_bb_bottom = fixtoi(npc->pos_y) + npc->ship->h;
-    int npc_bb_left = fixtoi(npc->pos_x);
-    int npc_bb_right = fixtoi(npc->pos_x) + npc->ship->w;
-
-    int bullet_bb_top = fixtoi(npc->bullet->pos_y);
-    int bullet_bb_bottom = fixtoi(npc->bullet->pos_y) + npc->bullet->proyectil->h;
-    int bullet_bb_left = fixtoi(npc->bullet->pos_x);
-    int bullet_bb_right = fixtoi(npc->bullet->pos_x) + npc->bullet->proyectil->w;
-
-    if(bb_right >= npc_bb_left && bb_left <= npc_bb_right && bb_bottom >= npc_bb_top && bb_top <= npc_bb_bottom)
+    for(std::list<NPC*>::iterator i = npc->begin(); i != npc->end(); i++)
     {
-        this->HP--;
-        std::cout << "Colision por nave!" << "HP: " << this->HP << std::endl;
-    }
+        int bb_top = fixtoi(pos_y);
+        int bb_bottom = (fixtoi(pos_y) + ship->h);
+        int bb_left = fixtoi(pos_x);
+        int bb_right = (fixtoi(pos_x) + ship->w);
 
-    if(npc->fire)
-    {
-        if(bb_right >= bullet_bb_left && bb_left <= bullet_bb_right && bb_bottom >= bullet_bb_top && bb_top <= bullet_bb_bottom)
+        int npc_bb_top = fixtoi((*i)->pos_y);
+        int npc_bb_bottom = fixtoi((*i)->pos_y) + (*i)->ship->h;
+        int npc_bb_left = fixtoi((*i)->pos_x);
+        int npc_bb_right = fixtoi((*i)->pos_x) + (*i)->ship->w;
+
+        int bullet_bb_top = fixtoi(bullet->pos_y);
+        int bullet_bb_bottom = fixtoi(bullet->pos_y) + bullet->proyectil->h;
+        int bullet_bb_left = fixtoi(bullet->pos_x);
+        int bullet_bb_right = fixtoi(bullet->pos_x) + bullet->proyectil->w;
+
+        int npc_bullet_bb_top = fixtoi((*i)->bullet->pos_y);
+        int npc_bullet_bb_bottom = fixtoi((*i)->bullet->pos_y) + (*i)->bullet->proyectil->h;
+        int npc_bullet_bb_left = fixtoi((*i)->bullet->pos_x);
+        int npc_bullet_bb_right = fixtoi((*i)->bullet->pos_x) + (*i)->bullet->proyectil->w;
+
+        if(bb_right >= npc_bb_left && bb_left <= npc_bb_right && bb_bottom >= npc_bb_top && bb_top <= npc_bb_bottom)
         {
             this->HP--;
-            std::cout << "Colision por tiro!" << "HP: " << this->HP << std::endl;
+            std::cout << "Colision por nave!" << "HP: " << this->HP << std::endl;
         }
-    }
 
-//    line(canvas, bullet_bb_left, bullet_bb_top, bullet_bb_right, bullet_bb_top, makecol(255,0,0));
-//    line(canvas, bullet_bb_left, bullet_bb_bottom, bullet_bb_right, bullet_bb_bottom, makecol(255,0,0));
-//    line(canvas, bullet_bb_left, bullet_bb_top, bullet_bb_left, bullet_bb_bottom, makecol(255,0,0));
-//    line(canvas, bullet_bb_right, bullet_bb_top, bullet_bb_right, bullet_bb_bottom, makecol(255,0,0));
+        if((*i)->fire)
+        {
+            if(bb_right >= npc_bullet_bb_left && bb_left <= npc_bullet_bb_right && bb_bottom >= npc_bullet_bb_top && bb_top <= npc_bullet_bb_bottom)
+            {
+                this->HP--;
+                std::cout << "Colision por tiro!" << "HP: " << this->HP << std::endl;
+            }
+        }
+
+        if(fire)
+        {
+            if(bullet_bb_right >= npc_bb_left && bullet_bb_left <= npc_bb_right && bullet_bb_bottom >= npc_bb_top && bullet_bb_top <= npc_bb_bottom)
+            {
+                (*i)->HP--;
+                if((*i)->HP <= 0)
+                {
+                    npc->erase(i);
+                    score+= 20;
+                }
+                std::cout << "Atacando naves enemigas" << std::endl;
+                std::cout << "Score: " << score << std::endl;
+            }
+        }
+
+//    line(canvas, npc_bullet_bb_left, npc_bullet_bb_top, npc_bullet_bb_right, npc_bullet_bb_top, makecol(255,0,0));
+//    line(canvas, npc_bullet_bb_left, npc_bullet_bb_bottom, npc_bullet_bb_right, npc_bullet_bb_bottom, makecol(255,0,0));
+//    line(canvas, npc_bullet_bb_left, npc_bullet_bb_top, npc_bullet_bb_left, npc_bullet_bb_bottom, makecol(255,0,0));
+//    line(canvas, npc_bullet_bb_right, npc_bullet_bb_top, npc_bullet_bb_right, npc_bullet_bb_bottom, makecol(255,0,0));
+    }
 }
 
-void Jugador::logic(NPC* npc, Camera* cam)
+void Jugador::logic(std::list<NPC*>* npc, Camera* cam)
 {
     if(this->HP <= 0)
     {

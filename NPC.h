@@ -17,7 +17,7 @@ public:
     bool moviendo;
     BITMAP* ship;
     Proyectil* bullet;
-    NPC(int x, int y, int HP);
+    NPC(int x, int y, int HP, std::string bullet_path);
     NPC();
     virtual void logic(fixed target_x, fixed target_y, Camera* cam);
     virtual void draw(BITMAP* canvas, Camera* cam);

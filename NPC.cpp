@@ -1,6 +1,6 @@
 #include "NPC.h"
 
-NPC::NPC(int x, int y, int HP)
+NPC::NPC(int x, int y, int HP, std::string bullet_path)
 {
     this->pos_x = itofix(x);
     this->pos_y = itofix(y);
@@ -9,8 +9,10 @@ NPC::NPC(int x, int y, int HP)
     this->HP = HP;
     this->fire = false;
     this->moviendo = false;
-    this->ship = load_bitmap("assets/NPCs/enemyBlue_right.bmp", NULL);
-    this->bullet = new Proyectil(pos_x,pos_y, "assets/Proyectil/NPCs/laserBlue03.bmp");
+    this->ship = load_bitmap("assets/NPCs/enemyBlue3_right.bmp", NULL);
+    this->bullet = new Proyectil(pos_x,pos_y, bullet_path);
+
+    std::cout << x << ", " << y << std::endl;
 }
 
 NPC::NPC()
@@ -46,8 +48,8 @@ void NPC::logic(fixed target_x, fixed target_y, Camera* cam)
 
     if(fire)
     {
-        if((fixtoi(bullet->pos_x) - cam->cameraX) < (SCREEN_W-40) && (fixtoi(bullet->pos_x) - cam->cameraX) > 0
-           && (fixtoi(bullet->pos_y) - cam->cameraY) < (SCREEN_H-40) && (fixtoi(bullet->pos_y) - cam->cameraY) > 0)
+        if((fixtoi(bullet->pos_x) - cam->cameraX) < (SCREEN_W) && (fixtoi(bullet->pos_x) - cam->cameraX) > 0
+           && (fixtoi(bullet->pos_y) - cam->cameraY) < (SCREEN_H) && (fixtoi(bullet->pos_y) - cam->cameraY) > 0)
         {
             bullet->mover(itofix(20), angle);
         }

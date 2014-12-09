@@ -7,26 +7,31 @@
 	<iostream>
 	<list>
 
-1417739155 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\main.cpp
+1418062867 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\main.cpp
 	<allegro.h>
 	<iostream>
 	<alpng.h>
 	<cstdlib>
 	<time.h>
+	<math.h>
+	<list>
 	"Jugador.h"
 	"NPC.h"
-	<math.h>
+	"GameManager.h"
+	"Audio.h"
 
-1417735849 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.cpp
+1417846008 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.cpp
 	"Jugador.h"
 
-1417734472 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.h
+1417846003 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\jugador.h
 	<allegro.h>
 	<alpng.h>
-	"Proyectil.h"
 	<math.h>
+	<list>
+	"Proyectil.h"
 	"NPC.h"
 	"Camera.h"
+	"Audio.h"
 
 1417483294 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\proyectil.h
 	<allegro.h>
@@ -36,10 +41,10 @@
 1417559482 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\proyectil.cpp
 	"Proyectil.h"
 
-1417740309 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\npc.cpp
+1417752895 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\npc.cpp
 	"NPC.h"
 
-1417739155 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\npc.h
+1417746301 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\npc.h
 	<allegro.h>
 	<math.h>
 	"Proyectil.h"
@@ -49,4 +54,33 @@
 	"Camera.h"
 
 1417734472 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\camera.h
+
+1417747555 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\nivel.cpp
+	"Nivel.h"
+
+1417747228 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\nivel.h
+	<list>
+	"NPC.h"
+
+1418062867 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\gamemanager.cpp
+	"GameManager.h"
+
+1418062867 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\gamemanager.h
+	<cstdlib>
+	<list>
+	"NPC.h"
+
+1418147984 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\audio.cpp
+	"Audio.h"
+
+1418147960 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\audio.h
+	<allegro.h>
+	<iostream>
+
+1418147960 source:c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\mainmenu.cpp
+	"MainMenu.h"
+
+1418147960 c:\users\alejandro\unitec\v trimestre\progra iii\juegoprogra3\mainmenu.h
+	<allegro.h>
+	<alpng.h>
 
