@@ -96,7 +96,7 @@
 
 1418141412 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\camera.h
 
-1418446541 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\gamemanager.cpp
+1418447641 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\gamemanager.cpp
 	"GameManager.h"
 
 1418446543 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\gamemanager.h
@@ -123,7 +123,7 @@
 	<alpng.h>
 	<iostream>
 
-1418141412 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\jugador.cpp
+1418447548 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\jugador.cpp
 	"Jugador.h"
 
 1418141412 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\jugador.h
@@ -136,7 +136,7 @@
 	"Camera.h"
 	"Audio.h"
 
-1418446581 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\main.cpp
+1418447311 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\main.cpp
 	<allegro.h>
 	<iostream>
 	<alpng.h>
@@ -194,7 +194,7 @@
 1418435303 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcred5.h
 	"NPC.h"
 
-1418434296 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblack1.cpp
+1418446690 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblack1.cpp
 	"NPCBlack1.h"
 
 1418437836 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblack2.cpp

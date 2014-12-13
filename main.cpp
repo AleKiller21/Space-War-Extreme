@@ -13,8 +13,8 @@
 
 
 volatile long speed_counter = 0;
-int worldWidth = 2000;
-int worldHeight = 2000;
+int worldWidth = 2560;
+int worldHeight = 1600;
 int background_pos_x = 0;
 int background_pos_y = 0;
 
@@ -70,7 +70,7 @@ int main(int argc, char * argv[])
     LOCK_VARIABLE(speed_counter);
     LOCK_FUNCTION(increment_speed_counter);
 
-    BITMAP* background = load_png("assets/Background/background2.png", NULL);
+    BITMAP* background = load_png("assets/Background/background.png", NULL);
     BITMAP* buffer = create_bitmap(worldWidth,worldHeight);
 
     audio.play();

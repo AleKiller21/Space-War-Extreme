@@ -162,9 +162,9 @@ void Jugador::logic(std::list<NPC*>* npc, Camera* cam)
         pos_x = itofix(0);
     }
 
-    if(fixtoi(pos_x) > 1950)
+    if(fixtoi(pos_x) > 2560)
     {
-        pos_x = itofix(1950);
+        pos_x = itofix(2560);
     }
 
     if(fixtoi(pos_y) < 0)
@@ -172,9 +172,9 @@ void Jugador::logic(std::list<NPC*>* npc, Camera* cam)
         pos_y = itofix(0);
     }
 
-    if(fixtoi(pos_y) > 1950)
+    if(fixtoi(pos_y) > 1600)
     {
-        pos_y = itofix(1950);
+        pos_y = itofix(1600);
     }
 
     if(fire)

@@ -23,13 +23,13 @@ int GameManager::npc_random_pos_x()
 
     else
     {
-        return 2000;
+        return 2560;
     }
 }
 
 int GameManager::npc_random_pos_y()
 {
-    return (rand()%2000);
+    return (rand()%1600);
 }
 
 void GameManager::iniciar_nuevo_nivel()
