@@ -7,6 +7,7 @@ GameManager::GameManager(std::list<NPC*>* npcs)
     this->nivel = 1;
     this->cantidad_enemigos_nivel = 10;
     this->juego_iniciado = false;
+    this->turno_npc = 2;
 }
 
 int GameManager::npc_random_pos_x()
@@ -37,8 +38,60 @@ void GameManager::iniciar_nuevo_nivel()
     this->cantidad_enemigos_nivel*= nivel;
     for(int i = 0; i < cantidad_enemigos_nivel; i++)
     {
-        npc_s->push_back(new NPC(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp"));
+        switch(turno_npc)
+        {
+            case 1:
+                {
+                    npc_s->push_back(new NPCBlue3(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp"));
+                    break;
+                }
+
+            case 2:
+                {
+                   npc_s->push_back(new NPCRed5(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp"));
+                   break;
+                }
+
+            case 3:
+                {
+                    npc_s->push_back(new NPCBlack1(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp"));
+                    break;
+                }
+
+            case 4:
+                {
+                    npc_s->push_back(new NPCBlue1(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp"));
+                    break;
+                }
+
+            case 5:
+                {
+                    npc_s->push_back(new NPCBlack2(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp"));
+                    break;
+                }
+
+            case 6:
+                {
+                    npc_s->push_back(new NPCGreen4(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp"));
+                    break;
+                }
+
+            case 7:
+                {
+                    npc_s->push_back(new NPCRed4(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp"));
+                    break;
+                }
+
+            case 8:
+                {
+                    npc_s->push_back(new NPCGreen5(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp"));
+                    break;
+                }
+        }
     }
+    turno_npc++;
+    if(turno_npc > 8)
+        turno_npc = 1;
     std::cout << "Nivel: " << nivel << std::endl;
 }
 

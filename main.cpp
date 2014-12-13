@@ -77,7 +77,7 @@ int main(int argc, char * argv[])
 
     for(int i = 0; i < 10; i++)
     {
-        npcs.push_back(new NPC(manager.npc_random_pos_x(), manager.npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp"));
+        npcs.push_back(new NPCBlue3(manager.npc_random_pos_x(), manager.npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp"));
     }
 
     while(!key[KEY_ESC])
