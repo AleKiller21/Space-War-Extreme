@@ -137,7 +137,7 @@
 	"Camera.h"
 	"Audio.h"
 
-1418523375 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\main.cpp
+1418530705 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\main.cpp
 	<allegro.h>
 	<iostream>
 	<alpng.h>
@@ -151,7 +151,7 @@
 	"Audio.h"
 	"MainMenu.h"
 
-1418526648 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\mainmenu.h
+1418531311 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\mainmenu.h
 	<allegro.h>
 	<iostream>
 	<alpng.h>

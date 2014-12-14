@@ -5,10 +5,25 @@ MainMenu::MainMenu()
     this->isActive = true;
     this->buffer = create_bitmap(1280,720);
     this->cursor_ship = load_png("assets/green_cursor.png", NULL);
-    set_alpha_blender();
 }
 
-void MainMenu::showMenu(int mouse_x, int mouse_y)
+void MainMenu::showInstructions()
+{
+    this->instructions = load_png("assets/MainMenu/Instructions.png", NULL);
+    clear_bitmap(buffer);
+    draw_sprite(buffer, instructions,0,0);
+    blit(buffer, screen,0,0,0,0,SCREEN_W,SCREEN_H);
+    while(true)
+    {
+        if(key[KEY_ESC])
+        {
+            destroy_bitmap(instructions);
+            return;
+        }
+    }
+}
+
+void MainMenu::showMenu()
 {
     bool menu = true;
     int posicion = 0;
@@ -66,6 +81,9 @@ void MainMenu::showMenu(int mouse_x, int mouse_y)
                     break;
 
                 case 3:
+                    showInstructions();
+                    draw_sprite(buffer, main_menu,0,0);
+                    blit(buffer, screen,0,0,0,0,SCREEN_W,SCREEN_H);
                     break;
 
                 case 4:

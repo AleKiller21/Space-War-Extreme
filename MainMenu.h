@@ -10,9 +10,11 @@ class MainMenu
         BITMAP* main_menu;
         BITMAP* buffer;
         BITMAP* cursor_ship;
+        BITMAP* instructions;
         bool isActive;
         MainMenu();
-        void showMenu(int mouse_x, int mouse_y);
+        void showMenu();
+        void showInstructions();
         virtual ~MainMenu();
     protected:
     private:

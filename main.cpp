@@ -73,7 +73,7 @@ int main(int argc, char * argv[])
     mouse_x;
     mouse_y;
 
-    //set_alpha_blender();
+    set_alpha_blender();
 
     while(!key[KEY_ESC])
     {
@@ -81,7 +81,7 @@ int main(int argc, char * argv[])
         if(menu.isActive)
         {
             audio.stop();
-            menu.showMenu(mouse_x, mouse_y);
+            menu.showMenu();
             menu.isActive = false;
             speed_counter = 0;
             audio.play();
