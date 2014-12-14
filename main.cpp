@@ -73,7 +73,7 @@ int main(int argc, char * argv[])
     mouse_x;
     mouse_y;
 
-    set_alpha_blender();
+    //set_alpha_blender();
 
     while(!key[KEY_ESC])
     {
