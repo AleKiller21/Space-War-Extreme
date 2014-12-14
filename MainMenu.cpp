@@ -78,6 +78,9 @@ void MainMenu::showMenu()
                     break;
 
                 case 2:
+                    showScores();
+                    draw_sprite(buffer, main_menu,0,0);
+                    blit(buffer, screen,0,0,0,0,SCREEN_W,SCREEN_H);
                     break;
 
                 case 3:
@@ -94,7 +97,61 @@ void MainMenu::showMenu()
     destroy_bitmap(main_menu);
 }
 
+void MainMenu::showScores()
+{
+    alfont_init();
+    ALFONT_FONT* font = alfont_load_font("kenvector_future.ttf");
+    alfont_set_font_size(font, 32);
+    this->score = load_png("assets/MainMenu/Scores.png", NULL);
+    int scores[3];
+    int pos_x = 70;
+    int pos_y = 266;
+    int iterador = 0;
+    clear_bitmap(buffer);
+    draw_sprite(buffer, score,0,0);
+    for(int i = 0; i < 3; i++)
+        scores[i] = 0;
+
+    std::ifstream in("save", std::ios::ate);
+    if(in != NULL)
+    {
+        int last = in.tellg();
+        int num;
+        in.seekg(0);
+        while(in.tellg() < last)
+        {
+            in.read((char*)&num, 4);
+            scores[iterador++] = num;
+        }
+        in.close();
+
+        for(int i = 0; i < 3; i++)
+        {
+            if(scores[i] > 0)
+            {
+                alfont_textprintf_ex(buffer, font, pos_x, pos_y, makecol(197,192,192), -1, "%d", scores[i]);
+                pos_y+= 63;
+            }
+        }
+    }
+
+    else
+        in.close();
+
+    blit(buffer, screen,0,0,0,0,SCREEN_W,SCREEN_H);
+    while(true)
+    {
+        if(key[KEY_ESC])
+        {
+            destroy_bitmap(score);
+            alfont_destroy_font(font);
+            alfont_exit();
+            return;
+        }
+    }
+}
+
 MainMenu::~MainMenu()
 {
-    //dtor
+
 }

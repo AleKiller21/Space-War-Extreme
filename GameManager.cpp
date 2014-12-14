@@ -1,6 +1,6 @@
 #include "GameManager.h"
 
-GameManager::GameManager(std::list<NPC*>* npcs, MainMenu* menu)
+GameManager::GameManager(std::list<NPC*>* npcs, MainMenu* menu, Jugador* ship)
 {
     this->npc_s = npcs;
     this->nivel = 1;
@@ -15,6 +15,7 @@ GameManager::GameManager(std::list<NPC*>* npcs, MainMenu* menu)
     this->ship6 = load_bitmap("assets/NPCs/enemyGreen4.bmp", NULL);
     this->ship7 = load_bitmap("assets/NPCs/enemyRed4.bmp", NULL);
     this->ship8 = load_bitmap("assets/NPCs/enemyGreen5.bmp", NULL);
+    this->jugador = ship;
 }
 
 int GameManager::npc_random_pos_x()
@@ -112,20 +113,86 @@ void GameManager::monitorear_estado_npc_lista()
     }
 }
 
-void GameManager::monitorear_estado_jugador(Jugador* ship)
+void GameManager::guardar_score()
 {
-    if(ship->HP <= 0)
+    int scores[4];
+    for(int i = 0; i < 4; i++)
+        scores[i] = 0;
+    int iterador = 0;
+    int num = jugador->score;
+    std::ifstream in("save", std::ios::ate);
+    if(in != NULL)
+    {
+        int finale = in.tellg();
+        int x;
+        in.seekg(0);
+        while(in.tellg() < finale)
+        {
+            in.read((char*)&x, 4);
+            scores[iterador++] = x;
+        }
+        in.close();
+
+        scores[3] = num;
+        for(int i = 0; i < 4; i++)
+        {
+            for(int x = 0; x < 3; x++)
+            {
+                if(scores[x] < scores[x+1])
+                {
+                    int temp = scores[x];
+                    scores[x] = scores[x+1];
+                    scores[x+1] = temp;
+                }
+            }
+        }
+
+        std::ofstream out("save");
+        int pos;
+        for(int i = 0; i < 3; i++)
+        {
+            pos = scores[i];
+            out.write((char*)&pos, 4);
+        }
+        out.close();
+
+        std::ifstream ino("save", std::ios::ate);
+        int last = ino.tellg();
+        ino.seekg(0);
+        int numero;
+        while(ino.tellg() < last)
+        {
+            ino.read((char*)&numero, 4);
+            std::cout << numero << std::endl;
+        }
+        ino.close();
+    }
+
+    else
+    {
+        in.close();
+        std::ofstream out("save");
+        out.write((char*)&num, 4);
+        out.close();
+    }
+}
+
+void GameManager::monitorear_estado_jugador()
+{
+    if(jugador->HP <= 0)
     {
         this->nivel = 1;
         this->cantidad_enemigos_nivel = 10;
         this->turno_npc = 2;
         menu->isActive = true;
-        ship->HP = 200;
+        jugador->HP = 200;
         for(npc_actual = npc_s->begin(); npc_actual != npc_s->end(); npc_actual++)
         {
             delete *npc_actual;
             npc_s->erase(npc_actual);
         }
+        guardar_score();
+        jugador->score = 0;
     }
 }
 

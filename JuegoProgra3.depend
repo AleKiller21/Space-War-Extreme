@@ -96,12 +96,13 @@
 
 1418141412 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\camera.h
 
-1418511636 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\gamemanager.cpp
+1418579697 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\gamemanager.cpp
 	"GameManager.h"
 
-1418505830 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\gamemanager.h
+1418577961 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\gamemanager.h
 	<cstdlib>
 	<list>
+	<fstream>
 	"Jugador.h"
 	"MainMenu.h"
 	"NPCBlue3.h"
@@ -127,7 +128,7 @@
 1418511636 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\jugador.cpp
 	"Jugador.h"
 
-1418141412 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\jugador.h
+1418585679 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\jugador.h
 	<allegro.h>
 	<alpng.h>
 	<math.h>
@@ -137,12 +138,13 @@
 	"Camera.h"
 	"Audio.h"
 
-1418530705 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\main.cpp
+1418540144 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\main.cpp
 	<allegro.h>
 	<iostream>
 	<alpng.h>
 	<cstdlib>
 	<time.h>
+	<fstream>
 	<math.h>
 	<list>
 	"Jugador.h"
@@ -151,12 +153,14 @@
 	"Audio.h"
 	"MainMenu.h"
 
-1418531311 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\mainmenu.h
+1418585640 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\mainmenu.h
 	<allegro.h>
 	<iostream>
+	<fstream>
+	"alfont.h"
 	<alpng.h>
 
-1418520187 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\mainmenu.cpp
+1418585640 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\mainmenu.cpp
 	"MainMenu.h"
 
 1418141412 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\nivel.cpp

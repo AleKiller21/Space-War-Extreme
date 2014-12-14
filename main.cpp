@@ -3,6 +3,7 @@
 #include <alpng.h>
 #include <cstdlib>
 #include <time.h>
+#include <fstream>
 #include <math.h>
 #include <list>
 #include "Jugador.h"
@@ -22,7 +23,6 @@ void initiate()
 {
     allegro_init();
     install_timer();
-    install_mouse();
     install_keyboard();
     install_mouse();
     set_color_depth(32);
@@ -60,7 +60,7 @@ int main(int argc, char * argv[])
     Camera cam(worldWidth, worldHeight);
     Audio audio("assets/Music/sound.wav");
     MainMenu menu;
-    GameManager manager(&npcs, &menu);
+    GameManager manager(&npcs, &menu, &ship);
 
     LOCK_VARIABLE(speed_counter);
     LOCK_FUNCTION(increment_speed_counter);
@@ -68,10 +68,6 @@ int main(int argc, char * argv[])
     BITMAP* background = load_png("assets/Background/background.png", NULL);
     BITMAP* buffer = create_bitmap(worldWidth,worldHeight);
     BITMAP* mouse_sprite = load_png("assets/cursor.png", NULL);
-
-    set_mouse_sprite(mouse_sprite);
-    mouse_x;
-    mouse_y;
 
     set_alpha_blender();
 
@@ -95,7 +91,7 @@ int main(int argc, char * argv[])
             }
             ship.logic(&npcs, &cam);
             manager.monitorear_estado_npc_lista();
-            manager.monitorear_estado_jugador(&ship);
+            manager.monitorear_estado_jugador();
             speed_counter--;
         }
 
@@ -111,7 +107,6 @@ int main(int argc, char * argv[])
     }
 //-------------------Destruction----------------------------
     ship.destroy_sprites();
-    show_mouse(NULL);
     destroy_bitmap(buffer);
     destroy_bitmap(background);
 
