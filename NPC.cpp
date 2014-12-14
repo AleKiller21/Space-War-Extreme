@@ -82,5 +82,5 @@ void NPC::destroy_sprites()
 
 NPC::~NPC()
 {
-    //dtor
+
 }

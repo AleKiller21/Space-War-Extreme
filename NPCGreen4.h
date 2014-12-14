@@ -6,7 +6,7 @@
 class NPCGreen4 : public NPC
 {
     public:
-        NPCGreen4(int x, int y, int HP, std::string bullet_path);
+        NPCGreen4(int x, int y, int HP, std::string bullet_path, BITMAP* sprite);
         virtual ~NPCGreen4();
     protected:
     private:

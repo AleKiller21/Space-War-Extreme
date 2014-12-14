@@ -1,6 +1,6 @@
 #include "NPCGreen4.h"
 
-NPCGreen4::NPCGreen4(int x, int y, int HP, std::string bullet_path)
+NPCGreen4::NPCGreen4(int x, int y, int HP, std::string bullet_path, BITMAP* sprite)
 {
     this->pos_x = itofix(x);
     this->pos_y = itofix(y);
@@ -9,7 +9,7 @@ NPCGreen4::NPCGreen4(int x, int y, int HP, std::string bullet_path)
     this->HP = HP;
     this->fire = false;
     this->moviendo = false;
-    this->ship = load_bitmap("assets/NPCs/enemyGreen4.bmp", NULL);
+    this->ship = sprite;
     this->bullet = new Proyectil(pos_x,pos_y, bullet_path);
 
     std::cout << x << ", " << y << std::endl;
@@ -17,6 +17,6 @@ NPCGreen4::NPCGreen4(int x, int y, int HP, std::string bullet_path)
 
 NPCGreen4::~NPCGreen4()
 {
-    destroy_bitmap(ship);
+    //destroy_bitmap(ship);
     delete bullet;
 }

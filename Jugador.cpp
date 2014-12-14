@@ -70,6 +70,8 @@ void Jugador::check_collision(std::list<NPC*>* npc)
                 (*i)->HP--;
                 if((*i)->HP <= 0)
                 {
+                    //(*i)->~NPC();
+                    delete *i;
                     npc->erase(i);
                     score+= 20;
                 }
@@ -87,11 +89,6 @@ void Jugador::check_collision(std::list<NPC*>* npc)
 
 void Jugador::logic(std::list<NPC*>* npc, Camera* cam)
 {
-    if(this->HP <= 0)
-    {
-        allegro_message("Game Over!");
-        exit(EXIT_SUCCESS);
-    }
     moviendo = false;
     if(key[KEY_A])
     {
@@ -162,9 +159,9 @@ void Jugador::logic(std::list<NPC*>* npc, Camera* cam)
         pos_x = itofix(0);
     }
 
-    if(fixtoi(pos_x) > 2560)
+    if(fixtoi(pos_x) > 2510)
     {
-        pos_x = itofix(2560);
+        pos_x = itofix(2510);
     }
 
     if(fixtoi(pos_y) < 0)
@@ -172,9 +169,9 @@ void Jugador::logic(std::list<NPC*>* npc, Camera* cam)
         pos_y = itofix(0);
     }
 
-    if(fixtoi(pos_y) > 1600)
+    if(fixtoi(pos_y) > 1550)
     {
-        pos_y = itofix(1600);
+        pos_y = itofix(1550);
     }
 
     if(fire)

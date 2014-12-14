@@ -18,6 +18,11 @@ void Audio::play()
     play_sample(sample, volume, panning, pitch, TRUE);
 }
 
+void Audio::stop()
+{
+    stop_sample(sample);
+}
+
 Audio::~Audio()
 {
     //dtor

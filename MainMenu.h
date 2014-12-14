@@ -7,18 +7,10 @@ class MainMenu
 {
     public:
         BITMAP* main_menu;
-        BITMAP* btn_play;
-        BITMAP* btn_play_hover;
-        //BITMAP* btn_score;
-        //BITMAP* btn_score_hover;
-        BITMAP* btn_options;
-        BITMAP* btn_options_hover;
-        BITMAP* btn_exit;
-        BITMAP* btn_exit_hover;
+        BITMAP* buffer;
+        bool isActive;
         MainMenu();
-        void iniciarJuego();
-        void showMenu(BITMAP* canvas);
-        void eliminarMenu();
+        void showMenu(int mouse_x, int mouse_y);
         virtual ~MainMenu();
     protected:
     private:

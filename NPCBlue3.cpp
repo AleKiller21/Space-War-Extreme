@@ -1,6 +1,6 @@
 #include "NPCBlue3.h"
 
-NPCBlue3::NPCBlue3(int x, int y, int HP, std::string bullet_path)
+NPCBlue3::NPCBlue3(int x, int y, int HP, std::string bullet_path, BITMAP* sprite)
 {
     this->pos_x = itofix(x);
     this->pos_y = itofix(y);
@@ -9,7 +9,7 @@ NPCBlue3::NPCBlue3(int x, int y, int HP, std::string bullet_path)
     this->HP = HP;
     this->fire = false;
     this->moviendo = false;
-    this->ship = load_bitmap("assets/NPCs/enemyBlue3.bmp", NULL);
+    this->ship = sprite;
     this->bullet = new Proyectil(pos_x,pos_y, bullet_path);
 
     std::cout << x << ", " << y << std::endl;
@@ -17,6 +17,5 @@ NPCBlue3::NPCBlue3(int x, int y, int HP, std::string bullet_path)
 
 NPCBlue3::~NPCBlue3()
 {
-    destroy_bitmap(ship);
     delete bullet;
 }

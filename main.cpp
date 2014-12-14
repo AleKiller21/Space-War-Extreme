@@ -18,12 +18,11 @@ int worldHeight = 1600;
 int background_pos_x = 0;
 int background_pos_y = 0;
 
-
 void initiate()
 {
     allegro_init();
     install_timer();
-    //install_mouse();
+    install_mouse();
     install_keyboard();
     install_mouse();
     set_color_depth(32);
@@ -49,10 +48,6 @@ void increment_speed_counter()
 }
 END_OF_FUNCTION(increment_speed_counter)
 
-void showMenuScreen()
-{
-
-}
 
 int main(int argc, char * argv[])
 {
@@ -62,40 +57,50 @@ int main(int argc, char * argv[])
     install_int_ex(increment_speed_counter, BPS_TO_TIMER(60));
     set_alpha_blender();
     Jugador ship(worldWidth/2,worldHeight/2);
-    GameManager manager(&npcs);
     Camera cam(worldWidth, worldHeight);
-    Audio audio("assets/sound.wav");
-    MainMenu menu();
+    Audio audio("assets/Music/sound.wav");
+    MainMenu menu;
+    GameManager manager(&npcs, &menu);
 
     LOCK_VARIABLE(speed_counter);
     LOCK_FUNCTION(increment_speed_counter);
 
     BITMAP* background = load_png("assets/Background/background.png", NULL);
     BITMAP* buffer = create_bitmap(worldWidth,worldHeight);
+    BITMAP* mouse_sprite = load_png("assets/cursor.png", NULL);
 
-    audio.play();
+    set_mouse_sprite(mouse_sprite);
+    mouse_x;
+    mouse_y;
 
-    for(int i = 0; i < 10; i++)
-    {
-        npcs.push_back(new NPCBlue3(manager.npc_random_pos_x(), manager.npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp"));
-    }
+    set_alpha_blender();
 
     while(!key[KEY_ESC])
     {
 //-------------------LOGIC----------------------------
+        if(menu.isActive)
+        {
+            audio.stop();
+            menu.showMenu(mouse_x, mouse_y);
+            menu.isActive = false;
+            speed_counter = 0;
+            audio.play();
+            manager.cargar_primera_vez();
+        }
         while(speed_counter > 0)
         {
             for(std::list<NPC*>::iterator i = npcs.begin(); i != npcs.end(); i++)
             {
                 (*i)->logic(ship.pos_x, ship.pos_y, &cam);
             }
-            ship.logic(&npcs, &cam);//&npc
+            ship.logic(&npcs, &cam);
             manager.monitorear_estado_npc_lista();
+            manager.monitorear_estado_jugador(&ship);
             speed_counter--;
         }
 
 //-------------------DRAWING----------------------------
-        draw_sprite(buffer, background, background_pos_x - cam.cameraX,background_pos_y - cam.cameraY);
+        draw_trans_sprite(buffer, background, background_pos_x - cam.cameraX,background_pos_y - cam.cameraY);
         for(std::list<NPC*>::iterator i = npcs.begin(); i != npcs.end(); i++)
         {
             (*i)->draw(buffer, &cam);
@@ -106,6 +111,7 @@ int main(int argc, char * argv[])
     }
 //-------------------Destruction----------------------------
     ship.destroy_sprites();
+    show_mouse(NULL);
     destroy_bitmap(buffer);
     destroy_bitmap(background);
 

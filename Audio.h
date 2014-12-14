@@ -12,6 +12,7 @@ class Audio
         SAMPLE* sample;
         Audio(std::string path);
         void play();
+        void stop();
         virtual ~Audio();
     protected:
     private:

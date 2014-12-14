@@ -84,10 +84,10 @@
 	<allegro.h>
 	<alpng.h>
 
-1418141412 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\audio.cpp
+1418502718 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\audio.cpp
 	"Audio.h"
 
-1418141412 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\audio.h
+1418502718 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\audio.h
 	<allegro.h>
 	<iostream>
 
@@ -96,12 +96,13 @@
 
 1418141412 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\camera.h
 
-1418447641 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\gamemanager.cpp
+1418511636 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\gamemanager.cpp
 	"GameManager.h"
 
-1418446543 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\gamemanager.h
+1418505830 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\gamemanager.h
 	<cstdlib>
 	<list>
+	"Jugador.h"
 	"MainMenu.h"
 	"NPCBlue3.h"
 	"NPCBlack1.h"
@@ -112,7 +113,7 @@
 	"NPCRed4.h"
 	"NPCRed5.h"
 
-1418141412 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npc.h
+1418501681 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npc.h
 	<allegro.h>
 	<math.h>
 	"Proyectil.h"
@@ -123,7 +124,7 @@
 	<alpng.h>
 	<iostream>
 
-1418447548 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\jugador.cpp
+1418511636 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\jugador.cpp
 	"Jugador.h"
 
 1418141412 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\jugador.h
@@ -136,7 +137,7 @@
 	"Camera.h"
 	"Audio.h"
 
-1418447311 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\main.cpp
+1418511339 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\main.cpp
 	<allegro.h>
 	<iostream>
 	<alpng.h>
@@ -150,11 +151,11 @@
 	"Audio.h"
 	"MainMenu.h"
 
-1418141412 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\mainmenu.h
+1418501248 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\mainmenu.h
 	<allegro.h>
 	<alpng.h>
 
-1418141412 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\mainmenu.cpp
+1418510901 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\mainmenu.cpp
 	"MainMenu.h"
 
 1418141412 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\nivel.cpp
@@ -164,57 +165,57 @@
 	<list>
 	"NPC.h"
 
-1418446288 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npc.cpp
+1418510685 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npc.cpp
 	"NPC.h"
 
 1418141412 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\proyectil.cpp
 	"Proyectil.h"
 
-1418235249 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblue3.h
+1418506002 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblue3.h
 	"NPC.h"
 
-1418434314 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblack1.h
+1418506002 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblack1.h
 	"NPC.h"
 
-1418434493 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblack2.h
+1418506002 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblack2.h
 	"NPC.h"
 
-1418434679 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblue1.h
+1418506002 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblue1.h
 	"NPC.h"
 
-1418434890 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcgreen4.h
+1418506002 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcgreen4.h
 	"NPC.h"
 
-1418434990 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcgreen5.h
+1418506002 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcgreen5.h
 	"NPC.h"
 
-1418435108 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcred4.h
+1418506002 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcred4.h
 	"NPC.h"
 
-1418435303 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcred5.h
+1418506002 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcred5.h
 	"NPC.h"
 
-1418446690 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblack1.cpp
+1418506470 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblack1.cpp
 	"NPCBlack1.h"
 
-1418437836 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblack2.cpp
+1418505830 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblack2.cpp
 	"NPCBlack2.h"
 
-1418437844 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblue1.cpp
+1418505830 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblue1.cpp
 	"NPCBlue1.h"
 
-1418437834 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblue3.cpp
+1418511386 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcblue3.cpp
 	"NPCBlue3.h"
 
-1418437846 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcgreen4.cpp
+1418505830 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcgreen4.cpp
 	"NPCGreen4.h"
 
-1418437818 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcgreen5.cpp
+1418505830 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcgreen5.cpp
 	"NPCGreen5.h"
 
-1418437815 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcred4.cpp
+1418505830 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcred4.cpp
 	"NPCRed4.h"
 
-1418436726 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcred5.cpp
+1418505830 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npcred5.cpp
 	"NPCRed5.h"
 

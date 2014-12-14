@@ -7,7 +7,7 @@
 class NPCBlack2 : public NPC
 {
     public:
-        NPCBlack2(int x, int y, int HP, std::string bullet_path);
+        NPCBlack2(int x, int y, int HP, std::string bullet_path, BITMAP* sprite);
         virtual ~NPCBlack2();
     protected:
     private:

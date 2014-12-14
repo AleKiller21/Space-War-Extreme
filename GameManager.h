@@ -2,7 +2,7 @@
 #define GAMEMANAGER_H
 #include <cstdlib>
 #include <list>
-//#include "NPC.h"
+#include "Jugador.h"
 #include "MainMenu.h"
 #include "NPCBlue3.h"
 #include "NPCBlack1.h"
@@ -16,19 +16,30 @@
 class GameManager
 {
     public:
-        bool nivel_terminado;
         int cantidad_enemigos_nivel;
         int nivel;
         int turno_npc;
-        bool juego_iniciado;
+
+        BITMAP* ship1;
+        BITMAP* ship2;
+        BITMAP* ship3;
+        BITMAP* ship4;
+        BITMAP* ship5;
+        BITMAP* ship6;
+        BITMAP* ship7;
+        BITMAP* ship8;
+
         std::list<NPC*>*npc_s;
         std::list<NPC*>::iterator npc_actual;
+        MainMenu* menu;
 
-        GameManager(std::list<NPC*>* npcs);
+        GameManager(std::list<NPC*>* npcs, MainMenu* menu);
         int npc_random_pos_x();
         int npc_random_pos_y();
         void iniciar_nuevo_nivel();
         void monitorear_estado_npc_lista();
+        void monitorear_estado_jugador(Jugador* ship);
+        void cargar_primera_vez();
         virtual ~GameManager();
     protected:
     private:
