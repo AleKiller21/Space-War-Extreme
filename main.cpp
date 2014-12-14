@@ -24,7 +24,6 @@ void initiate()
     allegro_init();
     install_timer();
     install_keyboard();
-    install_mouse();
     set_color_depth(32);
     set_gfx_mode(GFX_AUTODETECT_WINDOWED,1280,720,0,0);
 
@@ -52,6 +51,18 @@ END_OF_FUNCTION(increment_speed_counter)
 int main(int argc, char * argv[])
 {
     std::list<NPC*> npcs;
+    std::list<BITMAP*> stars;
+    int star_pos_x = 0;
+    int star_pos_y = 0;
+
+    int star_pos_x2 = worldWidth/2;
+    int star_pos_y2 = worldHeight/2;
+
+    int star_pos_x3 = 2000;
+    int star_pos_y3 = 1400;
+
+    int star_frame_counter = 0;
+
     srand(time(0));
     initiate();
     install_int_ex(increment_speed_counter, BPS_TO_TIMER(60));
@@ -67,9 +78,15 @@ int main(int argc, char * argv[])
 
     BITMAP* background = load_png("assets/Background/background.png", NULL);
     BITMAP* buffer = create_bitmap(worldWidth,worldHeight);
-    BITMAP* mouse_sprite = load_png("assets/cursor.png", NULL);
 
     set_alpha_blender();
+
+    stars.push_back(load_png("assets/effects/star.png", NULL));
+    stars.push_back(load_png("assets/effects/star2.png", NULL));
+    stars.push_back(load_png("assets/effects/star3.png", NULL));
+    stars.push_back(load_png("assets/effects/star4.png", NULL));
+
+    std::list<BITMAP*>::iterator star_actual = stars.begin();
 
     while(!key[KEY_ESC])
     {
@@ -92,11 +109,46 @@ int main(int argc, char * argv[])
             ship.logic(&npcs, &cam);
             manager.monitorear_estado_npc_lista();
             manager.monitorear_estado_jugador();
+            star_pos_x+=10;
+            star_pos_x2+=10;
+            star_pos_x3+=10;
+            if(star_frame_counter%3 == 0)
+                star_actual++;
+
+            if(star_actual == stars.end())
+                star_actual = stars.begin();
+
+            if(star_pos_x > 2510)
+            {
+                star_pos_x = 0;
+                star_pos_y = manager.npc_random_pos_y();
+                std::cout << star_pos_y << std::endl;
+            }
+
+            if(star_pos_x2 > 2510)
+            {
+                star_pos_x2 = 0;
+                star_pos_y2 = manager.npc_random_pos_y();
+                std::cout << star_pos_y2 << std::endl;
+            }
+
+            if(star_pos_x3 > 2510)
+            {
+                star_pos_x3 = 0;
+                star_pos_y3 = manager.npc_random_pos_y();
+                std::cout << star_pos_y3 << std::endl;
+            }
+
+            star_frame_counter++;
             speed_counter--;
         }
 
 //-------------------DRAWING----------------------------
         draw_trans_sprite(buffer, background, background_pos_x - cam.cameraX,background_pos_y - cam.cameraY);
+        draw_trans_sprite(buffer, *star_actual, star_pos_x-cam.cameraX, star_pos_y-cam.cameraY);
+        draw_trans_sprite(buffer, *star_actual, star_pos_x2-cam.cameraX, star_pos_y2-cam.cameraY);
+        draw_trans_sprite(buffer, *star_actual, star_pos_x3-cam.cameraX, star_pos_y3-cam.cameraY);
+
         for(std::list<NPC*>::iterator i = npcs.begin(); i != npcs.end(); i++)
         {
             (*i)->draw(buffer, &cam);
