@@ -125,7 +125,7 @@
 	<alpng.h>
 	<iostream>
 
-1418655885 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\jugador.cpp
+1418676243 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\jugador.cpp
 	"Jugador.h"
 
 1418585679 c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\jugador.h
@@ -138,7 +138,7 @@
 	"Camera.h"
 	"Audio.h"
 
-1418655886 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\main.cpp
+1418676101 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\main.cpp
 	<allegro.h>
 	<iostream>
 	<alpng.h>
@@ -171,7 +171,7 @@
 	<list>
 	"NPC.h"
 
-1418510685 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npc.cpp
+1418673587 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\npc.cpp
 	"NPC.h"
 
 1418141412 source:c:\users\alejandro\documents\codeblocks\juegoprogra3\juegoprogra3-master\proyectil.cpp
