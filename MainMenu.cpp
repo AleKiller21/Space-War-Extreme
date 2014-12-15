@@ -1,10 +1,11 @@
 #include "MainMenu.h"
 
-MainMenu::MainMenu()
+MainMenu::MainMenu(ALFONT_FONT* font)
 {
     this->isActive = true;
     this->buffer = create_bitmap(1280,720);
     this->cursor_ship = load_png("assets/green_cursor.png", NULL);
+    this->font = font;
 }
 
 void MainMenu::showInstructions()
@@ -99,9 +100,9 @@ void MainMenu::showMenu()
 
 void MainMenu::showScores()
 {
-    alfont_init();
-    ALFONT_FONT* font = alfont_load_font("kenvector_future.ttf");
-    alfont_set_font_size(font, 32);
+//    alfont_init();
+//    ALFONT_FONT* font = alfont_load_font("kenvector_future.ttf");
+//    alfont_set_font_size(font, 32);
     this->score = load_png("assets/MainMenu/Scores.png", NULL);
     int scores[3];
     int pos_x = 70;
@@ -144,8 +145,8 @@ void MainMenu::showScores()
         if(key[KEY_ESC])
         {
             destroy_bitmap(score);
-            alfont_destroy_font(font);
-            alfont_exit();
+//            alfont_destroy_font(font);
+//            alfont_exit();
             return;
         }
     }

@@ -14,8 +14,9 @@ class MainMenu
         BITMAP* cursor_ship;
         BITMAP* instructions;
         BITMAP* score;
+        ALFONT_FONT* font;
         bool isActive;
-        MainMenu();
+        MainMenu(ALFONT_FONT* font);
         void showMenu();
         void showInstructions();
         void showScores();

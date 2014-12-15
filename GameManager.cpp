@@ -43,6 +43,8 @@ int GameManager::npc_random_pos_y()
 void GameManager::iniciar_nuevo_nivel()
 {
     nivel++;
+    allegro_message("You beat all the enemy ships!");
+    allegro_message("Get ready for level: %d", nivel);
     this->cantidad_enemigos_nivel*= nivel;
     for(int i = 0; i < cantidad_enemigos_nivel; i++)
     {
@@ -56,13 +58,13 @@ void GameManager::iniciar_nuevo_nivel()
 
             case 2:
                 {
-                   npc_s->push_back(new NPCRed5(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp", ship2));
+                   npc_s->push_back(new NPCRed5(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/Green.bmp", ship2));
                    break;
                 }
 
             case 3:
                 {
-                    npc_s->push_back(new NPCBlack1(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp", ship3));
+                    npc_s->push_back(new NPCBlack1(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserRed03.bmp", ship3));
                     break;
                 }
 
@@ -74,25 +76,25 @@ void GameManager::iniciar_nuevo_nivel()
 
             case 5:
                 {
-                    npc_s->push_back(new NPCBlack2(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp", ship5));
+                    npc_s->push_back(new NPCBlack2(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserRed03.bmp", ship5));
                     break;
                 }
 
             case 6:
                 {
-                    npc_s->push_back(new NPCGreen4(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp", ship6));
+                    npc_s->push_back(new NPCGreen4(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/Green.bmp", ship6));
                     break;
                 }
 
             case 7:
                 {
-                    npc_s->push_back(new NPCRed4(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp", ship7));
+                    npc_s->push_back(new NPCRed4(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserRed03.bmp", ship7));
                     break;
                 }
 
             case 8:
                 {
-                    npc_s->push_back(new NPCGreen5(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/laserBlue03.bmp", ship8));
+                    npc_s->push_back(new NPCGreen5(npc_random_pos_x(), npc_random_pos_y(), 1, "assets/Proyectil/NPCs/Green.bmp", ship8));
                     break;
                 }
         }
@@ -107,8 +109,6 @@ void GameManager::monitorear_estado_npc_lista()
 {
     if(npc_s->size() == 0 && menu->isActive == false)
     {
-        allegro_message("You beat all the enemy ships!");
-        allegro_message("Get ready for next level");
         iniciar_nuevo_nivel();
     }
 }

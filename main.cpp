@@ -11,6 +11,7 @@
 #include "GameManager.h"
 #include "Audio.h"
 #include "MainMenu.h"
+#include "alfont.h"
 
 
 volatile long speed_counter = 0;
@@ -26,6 +27,8 @@ void initiate()
     install_keyboard();
     set_color_depth(32);
     set_gfx_mode(GFX_AUTODETECT_WINDOWED,1280,720,0,0);
+    set_window_title("Space War Extreme!");
+    alfont_init();
 
     if (install_sound(DIGI_AUTODETECT, MIDI_NONE, "") != 0)
     {
@@ -70,14 +73,16 @@ int main(int argc, char * argv[])
     Jugador ship(worldWidth/2,worldHeight/2);
     Camera cam(worldWidth, worldHeight);
     Audio audio("assets/Music/sound.wav");
-    MainMenu menu;
-    GameManager manager(&npcs, &menu, &ship);
 
     LOCK_VARIABLE(speed_counter);
     LOCK_FUNCTION(increment_speed_counter);
 
     BITMAP* background = load_png("assets/Background/background.png", NULL);
     BITMAP* buffer = create_bitmap(worldWidth,worldHeight);
+    ALFONT_FONT* font = alfont_load_font("kenvector_future.ttf");
+    alfont_set_font_size(font, 32);
+    MainMenu menu(font);
+    GameManager manager(&npcs, &menu, &ship);
 
     set_alpha_blender();
 
@@ -148,6 +153,8 @@ int main(int argc, char * argv[])
         draw_trans_sprite(buffer, *star_actual, star_pos_x-cam.cameraX, star_pos_y-cam.cameraY);
         draw_trans_sprite(buffer, *star_actual, star_pos_x2-cam.cameraX, star_pos_y2-cam.cameraY);
         draw_trans_sprite(buffer, *star_actual, star_pos_x3-cam.cameraX, star_pos_y3-cam.cameraY);
+        alfont_textprintf_ex(buffer, font, 0, 0, makecol(197,192,192), -1, "Score: %d", ship.score);
+        alfont_textprintf_ex(buffer, font, 1050, 0, makecol(197,192,192), -1, "HP: %d", ship.HP);
 
         for(std::list<NPC*>::iterator i = npcs.begin(); i != npcs.end(); i++)
         {
@@ -161,6 +168,8 @@ int main(int argc, char * argv[])
     ship.destroy_sprites();
     destroy_bitmap(buffer);
     destroy_bitmap(background);
+    alfont_destroy_font(font);
+    alfont_exit();
 
     return 0;
 }
