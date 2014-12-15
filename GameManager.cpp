@@ -102,7 +102,7 @@ void GameManager::iniciar_nuevo_nivel()
     turno_npc++;
     if(turno_npc > 8)
         turno_npc = 1;
-    std::cout << "Nivel: " << nivel << std::endl;
+    //std::cout << "Nivel: " << nivel << std::endl;
 }
 
 void GameManager::monitorear_estado_npc_lista()
@@ -163,7 +163,7 @@ void GameManager::guardar_score()
         while(ino.tellg() < last)
         {
             ino.read((char*)&numero, 4);
-            std::cout << numero << std::endl;
+            //std::cout << numero << std::endl;
         }
         ino.close();
     }

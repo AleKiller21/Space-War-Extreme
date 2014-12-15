@@ -12,7 +12,7 @@ NPCBlue1::NPCBlue1(int x, int y, int HP, std::string bullet_path, BITMAP* sprite
     this->ship = sprite;
     this->bullet = new Proyectil(pos_x,pos_y, bullet_path);
 
-    std::cout << x << ", " << y << std::endl;
+    //std::cout << x << ", " << y << std::endl;
 }
 
 NPCBlue1::~NPCBlue1()

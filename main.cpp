@@ -127,21 +127,21 @@ int main(int argc, char * argv[])
             {
                 star_pos_x = 0;
                 star_pos_y = manager.npc_random_pos_y();
-                std::cout << star_pos_y << std::endl;
+                //std::cout << star_pos_y << std::endl;
             }
 
             if(star_pos_x2 > 2510)
             {
                 star_pos_x2 = 0;
                 star_pos_y2 = manager.npc_random_pos_y();
-                std::cout << star_pos_y2 << std::endl;
+                //std::cout << star_pos_y2 << std::endl;
             }
 
             if(star_pos_x3 > 2510)
             {
                 star_pos_x3 = 0;
                 star_pos_y3 = manager.npc_random_pos_y();
-                std::cout << star_pos_y3 << std::endl;
+                //std::cout << star_pos_y3 << std::endl;
             }
 
             star_frame_counter++;

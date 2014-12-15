@@ -51,7 +51,7 @@ void Jugador::check_collision(std::list<NPC*>* npc)
         if(bb_right >= npc_bb_left && bb_left <= npc_bb_right && bb_bottom >= npc_bb_top && bb_top <= npc_bb_bottom)
         {
             this->HP--;
-            std::cout << "Colision por nave!" << "HP: " << this->HP << std::endl;
+            //std::cout << "Colision por nave!" << "HP: " << this->HP << std::endl;
         }
 
         if((*i)->fire)
@@ -59,7 +59,7 @@ void Jugador::check_collision(std::list<NPC*>* npc)
             if(bb_right >= npc_bullet_bb_left && bb_left <= npc_bullet_bb_right && bb_bottom >= npc_bullet_bb_top && bb_top <= npc_bullet_bb_bottom)
             {
                 this->HP--;
-                std::cout << "Colision por tiro!" << "HP: " << this->HP << std::endl;
+                //std::cout << "Colision por tiro!" << "HP: " << this->HP << std::endl;
             }
         }
 
@@ -75,8 +75,8 @@ void Jugador::check_collision(std::list<NPC*>* npc)
                     npc->erase(i);
                     score+= 20;
                 }
-                std::cout << "Atacando naves enemigas" << std::endl;
-                std::cout << "Score: " << score << std::endl;
+                //std::cout << "Atacando naves enemigas" << std::endl;
+                //std::cout << "Score: " << score << std::endl;
             }
         }
 

@@ -12,7 +12,7 @@ NPCGreen5::NPCGreen5(int x, int y, int HP, std::string bullet_path, BITMAP* spri
     this->ship = sprite;
     this->bullet = new Proyectil(pos_x,pos_y, bullet_path);
 
-    std::cout << x << ", " << y << std::endl;
+    //std::cout << x << ", " << y << std::endl;
 }
 
 NPCGreen5::~NPCGreen5()
