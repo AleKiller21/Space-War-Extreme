@@ -1,5 +1,5 @@
 #Space Wars Extreme
 
-Space Wars Extreme es un space shooter que consiste en sobrevivir wave tras wave. El objetivo del juego es hacer un highscore.
+Space Wars is a space shooter game based on waves. The objective is to make a highscore by surviving all the incoming waves.
 
-El juego fue hecho en el lenguaje de C++ utilizando la libreria de Allegro 4.
+The game was made in C++ using Allegro 4 library.
