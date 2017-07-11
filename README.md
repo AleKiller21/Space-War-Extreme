@@ -7,4 +7,4 @@ This game was made as a college project. It was written in C++ using Allegro 4 l
 ## Screenshots
 ![ScreenShot](https://github.com/AleKiller21/Space-War-Extreme/blob/master/assets/MainMenu/Main_menu.png)
 ![ScreenShot](https://github.com/AleKiller21/Space-War-Extreme/blob/master/assets/MainMenu/Instructions.png)
-![ScreenShot](https://github.com/AleKiller21/Space-War-Extreme/blob/master/website/SpaceWarExtreme/Gameplay.png)
+![ScreenShot](https://github.com/AleKiller21/Space-War-Extreme/blob/master/Gameplay.png)
